@@ -244,3 +244,28 @@ Usabilidad
 RNF-8 El sistema deberá ser intuitivo, de forma que un usuario administrativo pueda aprender su utilización básica en un tiempo máximo de 2 horas de capacitación
 RNF-9 El sistema debe proporcionar mensajes de error que indiquen causa del problema y acción requerida para solucionarlo
 RNF-10 El sistema debe poseer interfaces gráficas intuitivas para socios
+
+## GUILLERMO
+4. Entorno operativo
+El sistema "El buen descanso" va a funcionar completamente en un entorno web, tanto para los socios y los interesados como para los administradores. Esto quiere decir que no hace falta instalar nada en la computadora del usuario: alcanza con un navegador para poder usarlo, ya sea desde la web pública (formulario de afiliación) o desde el portal privado (socio/administrador logueado).
+En cuanto al lado del servidor, el desarrollo se va a hacer en Python, según lo que se definió para la estimación de esfuerzo del proyecto. El sistema está pensado para correr en un hosting estándar, sin requerir hardware específico ni infraestructura especial: no se prevén picos extremos de carga ni la necesidad de múltiples servidores distribuidos, alcanza con una configuración de servidor web convencional.
+Por el momento, la empresa opera desde un único cementerio/sede, por lo que el sistema no necesita contemplar múltiples ubicaciones ni sincronización entre distintos puntos físicos. Tampoco se identificaron integraciones con sistemas externos (como pasarelas de pago de terceros o sistemas de otra empresa); todo el flujo, desde la solicitud hasta el pago, se maneja dentro del propio sistema.
+Como requisito de seguridad del entorno, las contraseñas se van a almacenar con hash y salazón (por ejemplo bcrypt), y el acceso de administradores va a requerir un segundo factor de autenticación, tal como se establece en los requerimientos no funcionales.
+
+
+
+5. Reglas de Negocio(RNE)
+proveniente de la solución del ejercicio de empresa funebre parte 1.
+
+RN1: la fecha de pago no puede ser anterior a la fecha de ingreso del socio.
+RN2: el socio titular tiene que ser mayor de edad (18+) al momento del alta.
+RN3: la fecha de pago tiene que ser ≥ fecha de ingreso y ≤ fecha actual del sistema.
+RN4: el monto de un pago tiene que ser estrictamente mayor que 0.
+RN5: si el 2FA está activo en SYS_LOG, no se puede iniciar sesión sin validarlo.
+RN6: el estado de una solicitud solo puede ser "Pendiente", "Aprobado" o "Rechazado".
+RN7: no se puede crear un socio si la solicitud no está "Aprobada".
+RN8: la fecha de ingreso tiene que ser ≤ fecha del sistema al generarse.
+RN9: el tipo de espacio solo puede ser "Parcela", "Panteón" o "Nicho".
+RN10: el espacio asignado tiene que corresponder al tipo pedido en la solicitud, según disponibilidad.
+RN11: el pago mensual es por núcleo familiar, no individual.
+RN12: un espacio no puede asignarse a más de un socio activo a la vez.
