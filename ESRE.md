@@ -126,3 +126,121 @@ Requerimientos No Funcionales
 
 - Usabilidad: Un Interesado sin capacitación previa debe poder completar el formulario de afiliación en menos de 5 minutos, con mensajes de error claros y fáciles de comprender. 
 
+## LEONARDO
+2.1 Funcionalidades del producto
+Las funcionalidades que el producto debe brindar son:
+Gestión de Solicitudes de afiliación
+Evaluación de solicitudes
+Gestión socios
+Gestión Personas
+Gestión Administradores
+Gestión Integrantes
+Gestión Núcleos
+Gestión Espacios fúnebres
+Gestión Pagos
+Consultas
+Pagina web usuarios y administradores
+
+2.2 Clases y características de usuarios
+El producto a elaborar estará dirigido principalmente a tres tipos de usuarios:
+
+
+USUARIO: Interesado
+ROL: Persona que desea afiliarse a la empresa fúnebre mediante un formulario web
+PRIVILEGIOS: Completar solicitud, consultar estado de la misma
+USUARIO: Socio titular
+ROL: Responsable del grupo familiar
+PRIVILEGIOS: Gestionar datos personales, consultar pagos, visualizar integrantes del grupo familiar y espacio funerario asignado
+USUARIO: Representante grupo familiar
+ROL: Integrante autorizado que representa al grupo familiar cuando el titular no pueda hacerlo
+PRIVILEGIOS: Consultar información del grupo familiar y datos personales autorizados, consultar pagos
+USUARIO: Administrador
+ROL: Empleado de la empresa encargado en la gestión de espacios fúnebres, socios y grupos familiares
+PRIVILEGIOS: Aprobar solicitudes, registrar socios, asignar espacios fúnebres, control de pagos, gestionar socios y espacios fúnebres
+
+## RF y RNF de LEONARDO
+2.3 Requerimientos funcionales
+A continuación se detallan los requisitos funcionales que el sistema deberá
+implementar
+
+
+RF-1 Solicitud Web de Afiliación
+Descripción: El sistema deberá permitir que cualquier persona interesada complete un formulario de afiliación desde la web proporcionando toda la información requerida 
+Prioridad: Alta
+Acción iniciadora:
+Interesado completa el formulario 
+presiona en el botón de “Enviar”
+Comportamiento esperado:
+Validar los datos obligatorios del formulario
+Registrar la solicitud con estado pendiente
+Generar un número único de solicitud
+Notificar al administrador para su evaluación
+Mostrar al interesado el número de solicitud generado para su seguimiento
+
+RF-2 Evaluación de Solicitudes
+Descripción: El administrador podrá consultar todas las solicitudes pendientes y aprobarlas o rechazarlas
+Prioridad: Alta
+Acción iniciadora:
+El administrador inicia sesión
+Se dirige a la pantalla de solicitudes pendientes
+Comportamiento esperado:
+Mostrar todas las solicitudes pendientes
+Permitir visualizar los datos completos del formulario
+Registrar la fecha de evaluación
+Registrar el administrador responsable
+Cambiar el estado a aprobado o rechazado
+Permitir generar posteriormente el alta del socio únicamente cuando la solicitud se encuentre aprobada
+
+RF-3 Alta de Socio
+Descripción: El sistema permitirá registrar un nuevo socio únicamente cuando se le haya aprobado su solicitud
+Prioridad: Alta
+Acción iniciadora:
+El administrador aprueba la solicitud
+Comportamiento esperado:
+Crear el registro del socio
+Registrar la fecha de ingreso
+Asignar un número de socio
+Registrar el núcleo familiar
+Habilitar el acceso web del nuevo socio
+Habilitar  el pago de cuota por afiliación
+
+RF-4 Asignación de Espacio Funerario
+Descripción: El sistema permitirá al administrador asignar un espacio fúnebre a un socio/grupo familiar
+Prioridad: Alta
+Acción iniciadora:
+El administrador controla el correcto pago por afiliación realizado
+Ingresa a la pantalla de gestión de socio
+Selecciona el botón “Asignar espacio fúnebre”
+Comportamiento esperado:
+Asigna un espacio fúnebre dependiendo disponibilidad
+
+RF-5 Portal del Socio
+Descripción: El socio podrá consultar toda su información personal desde la web
+Prioridad: Alta
+Acción iniciadora:
+El socio inicia sesión
+Comportamiento esperado:
+El sistema deberá mostrar:
+Datos personales
+Integrantes del grupo familiar y datos
+Espacio fúnebre asignado
+Historial de pagos
+
+2.4 Requerimientos no funcionales
+Eficiencia:
+RNF-1 Toda funcionalidad del sistema debe responder al usuario en menos de 3 segundos.
+RNF-2 El sistema debe ser capaz de operar adecuadamente con hasta 10.000 usuarios con sesiones concurrentes.
+RNF-3 Los datos modificados en la base de datos deben ser actualizados para todos los usuarios del sistema en menos de 3 segundos.
+
+
+Seguridad lógica y de datos
+RNF-4 Autentificar los usuarios mediante usuario y contraseña, y autentificación en 2 pasos (codigo al celular)
+RNF-5 Realizar copias de seguridad automáticas diariamente
+RNF-6 Restringir el acceso según el rol del usuario
+RNF-7 Realizar un monitoreo continuo ante posibles ataques de seguridad
+
+
+Usabilidad
+RNF-8 El sistema deberá ser intuitivo, de forma que un usuario administrativo pueda aprender su utilización básica en un tiempo máximo de 2 horas de capacitación
+RNF-9 El sistema debe proporcionar mensajes de error que indiquen causa del problema y acción requerida para solucionarlo
+RNF-10 El sistema debe poseer interfaces gráficas intuitivas para socios
